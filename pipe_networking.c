@@ -40,7 +40,7 @@ int server_connect(int from_client) {
   read(from_client, buffer, sizeof(buffer));
   printf("[server] handshake received: %s\n", buffer);
 
-  return -1;
+  return to_client;
 }
 
 /*=========================
