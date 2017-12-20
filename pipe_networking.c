@@ -31,14 +31,14 @@ int server_setup() {
 int server_connect(int from_client) {
   char buffer[HANDSHAKE_BUFFER_SIZE];
   read(from_client, buffer, sizeof(buffer));
-  printf("[server] handshake: received [%s]\n", buffer);
+  printf("[subserver] handshake: received [%s]\n", buffer);
   //connect to client, send message
   int to_client = open(buffer, O_WRONLY, 0);
   write(to_client, buffer, sizeof(buffer));
 
   //read for client
   read(from_client, buffer, sizeof(buffer));
-  printf("[server] handshake received: %s\n", buffer);
+  printf("[subserver] handshake received: %s\n", buffer);
 
   return to_client;
 }

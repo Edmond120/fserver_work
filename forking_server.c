@@ -24,7 +24,7 @@ int main() {
     }
     else{
       close(from_client);
-      remove(from_client);
+      //remove(from_client);
     }
   }
 }
@@ -33,11 +33,12 @@ void subserver(int from_client) {
   int to_client = server_connect(from_client);
   char* buff = (char*) calloc((BUFFER_SIZE / sizeof(char)), sizeof(char));
   while(read(from_client, buff, BUFFER_SIZE)){
-    process(buff);
+    printf("[subserver] recieved: [%s]\n", buff);
+    /* process(buff); */
     write(to_client, buff, BUFFER_SIZE);
   }
 }
 
 void process(char * s) {
-  
+
 }
